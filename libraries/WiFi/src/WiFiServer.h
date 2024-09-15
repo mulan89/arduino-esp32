@@ -38,10 +38,10 @@ class WiFiServer : public Server {
   public:
     void listenOnLocalhost(){}
 
-    WiFiServer(uint16_t port=80, uint8_t max_clients=4):sockfd(-1),_accepted_sockfd(-1),_addr(INADDR_ANY),_port(port),_max_clients(max_clients),_listening(false),_noDelay(false) {
+    WiFiServer(uint16_t port=80, uint8_t max_clients=15):sockfd(-1),_accepted_sockfd(-1),_addr(INADDR_ANY),_port(port),_max_clients(max_clients),_listening(false),_noDelay(false) {
       log_v("WiFiServer::WiFiServer(port=%d, ...)", port);
     }
-    WiFiServer(const IPAddress& addr, uint16_t port=80, uint8_t max_clients=4):sockfd(-1),_accepted_sockfd(-1),_addr(addr),_port(port),_max_clients(max_clients),_listening(false),_noDelay(false) {
+    WiFiServer(const IPAddress& addr, uint16_t port=80, uint8_t max_clients=15):sockfd(-1),_accepted_sockfd(-1),_addr(addr),_port(port),_max_clients(max_clients),_listening(false),_noDelay(false) {
       log_v("WiFiServer::WiFiServer(addr=%s, port=%d, ...)", addr.toString().c_str(), port);
     }
     ~WiFiServer(){ end();}
